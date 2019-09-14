@@ -46,7 +46,7 @@ Route::group(['prefix'  =>  'admin'], function () {
         });
 
         /**********
-         * Department Controller
+         * City Controller
          * ******** */
         Route::group(['prefix'  =>   'city'], function() {
  
@@ -56,6 +56,20 @@ Route::group(['prefix'  =>  'admin'], function () {
             Route::get('/{id}/edit', 'Admin\CitiesController@edit')->name('admin.city.edit');
             Route::post('/update', 'Admin\CitiesController@update')->name('admin.city.update');
             Route::get('/{id}/delete', 'Admin\CitiesController@delete')->name('admin.city.delete');
+         
+        });
+
+        /**********
+         * Countries Controller
+         * ******** */
+        Route::group(['prefix'  =>   'country'], function() {
+ 
+            Route::get('/', 'Admin\CountriesController@index')->name('admin.country.index');
+            Route::get('/create', 'Admin\CountriesController@create')->name('admin.country.create');
+            Route::post('/store', 'Admin\CountriesController@store')->name('admin.country.store');
+            Route::get('/{id}/edit', 'Admin\CountriesController@edit')->name('admin.country.edit');
+            Route::post('/update', 'Admin\CountriesController@update')->name('admin.country.update');
+            Route::get('/{id}/delete', 'Admin\CountriesController@delete')->name('admin.country.delete');
          
         });
     });
