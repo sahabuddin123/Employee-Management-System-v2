@@ -17,8 +17,8 @@ Route::group(['prefix'  =>  'admin'], function () {
         Route::get('/settings', 'Admin\SettingController@index')->name('admin.settings');
         Route::post('/settings', 'Admin\SettingController@update')->name('admin.settings.update');
 
-/**********
-         * Department Controller
+        /**********
+         * admin Controller
          * ******** */
         Route::group(['prefix'  =>   'adminuser'], function() {
  
@@ -42,6 +42,20 @@ Route::group(['prefix'  =>  'admin'], function () {
             Route::get('/{id}/edit', 'Admin\DepartmentController@edit')->name('admin.departments.edit');
             Route::post('/update', 'Admin\DepartmentController@update')->name('admin.departments.update');
             Route::get('/{id}/delete', 'Admin\DepartmentController@delete')->name('admin.departments.delete');
+         
+        });
+
+        /**********
+         * Department Controller
+         * ******** */
+        Route::group(['prefix'  =>   'city'], function() {
+ 
+            Route::get('/', 'Admin\CitiesController@index')->name('admin.city.index');
+            Route::get('/create', 'Admin\CitiesController@create')->name('admin.city.create');
+            Route::post('/store', 'Admin\CitiesController@store')->name('admin.city.store');
+            Route::get('/{id}/edit', 'Admin\CitiesController@edit')->name('admin.city.edit');
+            Route::post('/update', 'Admin\CitiesController@update')->name('admin.city.update');
+            Route::get('/{id}/delete', 'Admin\CitiesController@delete')->name('admin.city.delete');
          
         });
     });

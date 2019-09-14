@@ -1,14 +1,23 @@
 <?php
  
 namespace App\Providers;
- 
+
+use App\Contracts\AdminContract;
 use App\Contracts\DepartmentContract;
+use App\Contracts\CityContract;
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\AdminRepository;
 use App\Repositories\DepartmentRepository;
+use App\Repositories\CityRepository;
  
 class RepositoryServiceProvider extends ServiceProvider
 {
-    protected $repositories = [DepartmentContract::class=>DepartmentRepository::class,];
+    protected $repositories = [
+        AdminContract::class=>AdminRepository::class,
+        DepartmentContract::class=>DepartmentRepository::class,
+        CityContract::class=>CityRepository::class,
+        
+    ];
  
     /**
      * Register services.

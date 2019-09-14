@@ -56,18 +56,18 @@ public function findAdminById(int $id){
  * @return mixed
  */
 public function createAdmin(array $params){
-   // try {
+    try {
         $collection = collect($params);
         $picture = null;
  
         if ($collection->has('picture') && ($params['picture'] instanceof  UploadedFile)) {
             $picture = $this->uploadOne($params['picture'], 'admins');
         }
-        $username = $collection->has('username');// ? 1 : 0;
-        $first_name = $collection->has('first_name');// ? 1 : 0;
-        $last_name = $collection->has('last_name');// ? 1 : 0;
-        $email = $collection->has('email');// ? 1 : 0;
-        $password = $collection->has('password') ;//? 1 : 0;
+        $username = $collection->has('username') ? 1 : 0;
+        $first_name = $collection->has('first_name') ? 1 : 0;
+        $last_name = $collection->has('last_name') ? 1 : 0;
+        $email = $collection->has('email') ? 1 : 0;
+        $password = $collection->has('password')? 1 : 0;
         $merge = $collection->merge(compact('username','first_name','last_name','email','password','picture'));
  
         $admin = new Adminuser($merge->all());
@@ -76,10 +76,11 @@ public function createAdmin(array $params){
  
         return $admin;
  
-    // } catch (QueryException $exception) {
-    //     throw new InvalidArgumentException($exception->getMessage());
-    // }
+    } catch (QueryException $exception) {
+        throw new InvalidArgumentException($exception->getMessage());
+    }
 }
+
  
 /**
  * @param array $params

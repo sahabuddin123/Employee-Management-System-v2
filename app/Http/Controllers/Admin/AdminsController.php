@@ -52,9 +52,11 @@ class AdminsController extends BaseController
     {
         $this->validate($request, [
             'username'      =>  'required|max:191',
-            'email'      =>  'required|email',
+            'first_name'    =>  'required|max:20',
+            'last_name'     =>  'required|max:20',
+            'email'         =>  'required|email',
             'password'      =>  'required|min:6',
-            'picture'     =>  'mimes:jpg,jpeg,png|max:1000'
+            'picture'       =>  'mimes:jpg,jpeg,png|max:1000'
         ]);
     
         $params = $request->except('_token');
