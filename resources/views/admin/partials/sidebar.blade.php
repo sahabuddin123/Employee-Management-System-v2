@@ -55,5 +55,12 @@
             <span class="app-menu__label">State</span>
             </a>
         </li>
+        <li>
+            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.division.index' ? 'active' : '' }}"
+            href="{{ route('admin.division.index') }}">
+            <i class="app-menu__icon fa fa-area-chart"></i>
+            <span class="app-menu__label">Division</span>
+            </a>
+        </li>
     </ul>
 </aside>

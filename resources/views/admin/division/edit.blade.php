@@ -11,20 +11,20 @@
         <div class="col-md-8 mx-auto">
             <div class="tile">
                 <h3 class="tile-title">{{ $subTitle }}</h3>
-                <form action="{{ route('admin.state.update') }}" method="POST" role="form" enctype="multipart/form-data">
+                <form action="{{ route('admin.division.update') }}" method="POST" role="form" enctype="multipart/form-data">
                     @csrf
                     <div class="tile-body">
                         <div class="form-group">
-                            <label class="control-label" for="name">Edit State <span class="m-l-5 text-danger"> *</span></label>
-                            <input class="form-control @error('name') is-invalid @enderror" type="text" name="state_name" id="name" value="{{ old('state_name', $targetstate->state_name) }}"/>
-                            <input type="hidden" name="id" value="{{ $targetstate->id }}">
+                            <label class="control-label" for="name">Edit Division <span class="m-l-5 text-danger"> *</span></label>
+                            <input class="form-control @error('name') is-invalid @enderror" type="text" name="division_name" id="name" value="{{ old('division_name', $targetdivision->division_name) }}"/>
+                            <input type="hidden" name="id" value="{{ $targetdivision->id }}">
                             @error('name') {{ $message }} @enderror
                         </div>
                         
                     <div class="tile-footer">
-                        <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Update State</button>
+                        <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Update Division</button>
                         &nbsp;&nbsp;&nbsp;
-                        <a class="btn btn-secondary" href="{{ route('admin.state.index') }}"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
+                        <a class="btn btn-secondary" href="{{ route('admin.division.index') }}"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
                     </div>
                 </form>
             </div>

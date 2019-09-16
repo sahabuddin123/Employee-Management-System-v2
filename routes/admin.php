@@ -88,5 +88,16 @@ Route::group(['prefix'  =>  'admin'], function () {
             Route::post('/update', 'Admin\StatesController@update')->name('admin.state.update');
             Route::get('/{id}/delete', 'Admin\StatesController@delete')->name('admin.state.delete');
         });
+        /**********
+         * DivisionsController
+         * ******** */
+        Route::group(['prefix'  =>   'division'], function() {
+            Route::get('/', 'Admin\DivisionsController@index')->name('admin.division.index');
+            Route::get('/create', 'Admin\DivisionsController@create')->name('admin.division.create');
+            Route::post('/store', 'Admin\DivisionsController@store')->name('admin.division.store');
+            Route::get('/{id}/edit', 'Admin\DivisionsController@edit')->name('admin.division.edit');
+            Route::post('/update', 'Admin\DivisionsController@update')->name('admin.division.update');
+            Route::get('/{id}/delete', 'Admin\DivisionsController@delete')->name('admin.division.delete');
+        });
     });
 });
