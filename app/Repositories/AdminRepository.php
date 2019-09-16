@@ -63,11 +63,12 @@ public function createAdmin(array $params){
         if ($collection->has('picture') && ($params['picture'] instanceof  UploadedFile)) {
             $picture = $this->uploadOne($params['picture'], 'admins');
         }
-        $username = $collection->has('username') ? 1 : 0;
-        $first_name = $collection->has('first_name') ? 1 : 0;
-        $last_name = $collection->has('last_name') ? 1 : 0;
-        $email = $collection->has('email') ? 1 : 0;
-        $password = $collection->has('password')? 1 : 0;
+        //$username = $collection->has('username') ? 1 : 0;
+        $username=$params['username'];
+        $first_name =$params['first_name'];// $collection->has('first_name') ? 1 : 0;
+        $last_name =$params['last_name'];// $collection->has('last_name') ? 1 : 0;
+        $email =$params['email'];// $collection->has('email') ? 1 : 0;
+        $password = bcrypt($params['password']);// $collection->has('password')? 1 : 0;
         $merge = $collection->merge(compact('username','first_name','last_name','email','password','picture'));
  
         $admin = new Adminuser($merge->all());
@@ -98,13 +99,14 @@ public function updateAdmin(array $params){
  
         $picture = $this->uploadOne($params['picture'], 'admin');
     }
-    $username = $collection->has('username');
-    $first_name = $collection->has('first_name');
-    $last_name = $collection->has('last_name');
-    $email = $collection->has('email');
-    $password = $collection->has('password');
+   //$username = $collection->has('username') ? 1 : 0;
+   $username=$params['username'];
+   $first_name =$params['first_name'];// $collection->has('first_name') ? 1 : 0;
+   $last_name =$params['last_name'];// $collection->has('last_name') ? 1 : 0;
+   $email =$params['email'];// $collection->has('email') ? 1 : 0;
+   //$password = bcrypt($params['password']);// $collection->has('password')? 1 : 0;
  
-    $merge = $collection->merge(compact('username','first_name','last_name','email','password','picture'));
+    $merge = $collection->merge(compact('username','first_name','last_name','email','picture'));
  
     $admin->update($merge->all());
  

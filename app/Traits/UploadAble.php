@@ -2,6 +2,7 @@
 namespace App\Traits;
  
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
  
 /**
@@ -19,7 +20,7 @@ trait UploadAble
      */
     public function uploadOne(UploadedFile $file, $folder = null, $disk = 'public', $filename = null)
     {
-        $name = !is_null($filename) ;
+        $name = !is_null($filename) ? $filename : md5(uniqid());
  
         return $file->storeAs(
             $folder,

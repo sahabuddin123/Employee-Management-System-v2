@@ -36,11 +36,6 @@
                             @error('email') {{ $message }} @enderror
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="password">Password <span class="m-l-5 text-danger"> *</span></label>
-                            <input class="form-control @error('password') is-invalid @enderror" type="password" name="password" id="password" value="{{ old('password', $admin->password) }}" />
-                            @error('password') {{ $message }} @enderror
-                        </div>
-                        <div class="form-group">
                         <div class="row">
                             <div class="col-md-2">
                                 @if ($admin->picture != null)

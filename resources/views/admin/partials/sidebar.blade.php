@@ -23,21 +23,21 @@
         <li>
             <a class="app-menu__item {{ Route::currentRouteName() == 'admin.departments.index' ? 'active' : '' }}"
             href="{{ route('admin.departments.index') }}">
-            <i class="app-menu__icon fa fa-tags"></i>
+            <i class="app-menu__icon fa fa-building" aria-hidden="true"></i>
             <span class="app-menu__label">Department</span>
             </a>
         </li>
         <li>
             <a class="app-menu__item {{ Route::currentRouteName() == 'admin.city.index' ? 'active' : '' }}"
             href="{{ route('admin.city.index') }}">
-            <i class="app-menu__icon fa fa-tags"></i>
+            <i class="app-menu__icon fa fa-map-marker"></i>
             <span class="app-menu__label">City</span>
             </a>
         </li>
         <li>
             <a class="app-menu__item {{ Route::currentRouteName() == 'admin.country.index' ? 'active' : '' }}"
             href="{{ route('admin.country.index') }}">
-            <i class="app-menu__icon fa fa-tags"></i>
+            <i class="app-menu__icon fa fa-globe"></i>
             <span class="app-menu__label">Country</span>
             </a>
         </li>
