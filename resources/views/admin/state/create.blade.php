@@ -11,20 +11,20 @@
         <div class="col-md-8 mx-auto">
             <div class="tile">
                 <h3 class="tile-title">{{ $subTitle }}</h3>
-                <form action="{{ route('admin.departments.update') }}" method="POST" role="form" enctype="multipart/form-data">
+                <form action="{{ route('admin.state.store') }}" method="POST" role="form" enctype="multipart/form-data">
                     @csrf
                     <div class="tile-body">
                         <div class="form-group">
-                            <label class="control-label" for="name">Name <span class="m-l-5 text-danger"> *</span></label>
-                            <input class="form-control @error('name') is-invalid @enderror" type="text" name="dept_name" id="name" value="{{ old('dept_name', $targetdepartment->dept_name) }}"/>
-                            <input type="hidden" name="id" value="{{ $targetdepartment->id }}">
+                            <label class="control-label" for="name">Add State <span class="m-l-5 text-danger"> *</span></label>
+                            <input class="form-control @error('name') is-invalid @enderror" type="text" name="state_name" id="name" value="{{ old('name') }}"/>
                             @error('name') {{ $message }} @enderror
                         </div>
                         
                     <div class="tile-footer">
-                        <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Update Department</button>
+                        <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Save State</button>
                         &nbsp;&nbsp;&nbsp;
-                        <a class="btn btn-secondary" href="{{ route('admin.departments.index') }}"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
+                        <a class="btn btn-secondary" href="{{ route('admin.state.index') }}"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
+                    </div>
                     </div>
                 </form>
             </div>

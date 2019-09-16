@@ -41,5 +41,19 @@
             <span class="app-menu__label">Country</span>
             </a>
         </li>
+        <li>
+            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.salary.index' ? 'active' : '' }}"
+            href="{{ route('admin.salary.index') }}">
+            <i class="app-menu__icon fa fa-usd"></i>
+            <span class="app-menu__label">Salary</span>
+            </a>
+        </li>
+        <li>
+            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.state.index' ? 'active' : '' }}"
+            href="{{ route('admin.state.index') }}">
+            <i class="app-menu__icon fa fa-building-o"></i>
+            <span class="app-menu__label">State</span>
+            </a>
+        </li>
     </ul>
 </aside>

@@ -21,7 +21,6 @@ Route::group(['prefix'  =>  'admin'], function () {
          * admin Controller
          * ******** */
         Route::group(['prefix'  =>   'adminuser'], function() {
- 
             Route::get('/', 'Admin\AdminsController@index')->name('admin.adminuser.index');
             Route::get('/create', 'Admin\AdminsController@create')->name('admin.adminuser.create');
             Route::post('/store', 'Admin\AdminsController@store')->name('admin.adminuser.store');
@@ -29,49 +28,65 @@ Route::group(['prefix'  =>  'admin'], function () {
             Route::get('/{id}/show', 'Admin\AdminsController@show')->name('admin.adminuser.show');
             Route::post('/update', 'Admin\AdminsController@update')->name('admin.adminuser.update');
             Route::get('/{id}/delete', 'Admin\AdminsController@delete')->name('admin.adminuser.delete');
-         
         });
 
         /**********
          * Department Controller
          * ******** */
         Route::group(['prefix'  =>   'departments'], function() {
- 
             Route::get('/', 'Admin\DepartmentController@index')->name('admin.departments.index');
             Route::get('/create', 'Admin\DepartmentController@create')->name('admin.departments.create');
             Route::post('/store', 'Admin\DepartmentController@store')->name('admin.departments.store');
             Route::get('/{id}/edit', 'Admin\DepartmentController@edit')->name('admin.departments.edit');
             Route::post('/update', 'Admin\DepartmentController@update')->name('admin.departments.update');
             Route::get('/{id}/delete', 'Admin\DepartmentController@delete')->name('admin.departments.delete');
-         
         });
 
         /**********
          * City Controller
          * ******** */
         Route::group(['prefix'  =>   'city'], function() {
- 
             Route::get('/', 'Admin\CitiesController@index')->name('admin.city.index');
             Route::get('/create', 'Admin\CitiesController@create')->name('admin.city.create');
             Route::post('/store', 'Admin\CitiesController@store')->name('admin.city.store');
             Route::get('/{id}/edit', 'Admin\CitiesController@edit')->name('admin.city.edit');
             Route::post('/update', 'Admin\CitiesController@update')->name('admin.city.update');
             Route::get('/{id}/delete', 'Admin\CitiesController@delete')->name('admin.city.delete');
-         
         });
 
         /**********
          * Countries Controller
          * ******** */
         Route::group(['prefix'  =>   'country'], function() {
- 
             Route::get('/', 'Admin\CountriesController@index')->name('admin.country.index');
             Route::get('/create', 'Admin\CountriesController@create')->name('admin.country.create');
             Route::post('/store', 'Admin\CountriesController@store')->name('admin.country.store');
             Route::get('/{id}/edit', 'Admin\CountriesController@edit')->name('admin.country.edit');
             Route::post('/update', 'Admin\CountriesController@update')->name('admin.country.update');
             Route::get('/{id}/delete', 'Admin\CountriesController@delete')->name('admin.country.delete');
-         
+        });
+
+        /**********
+         * SalariesController
+         * ******** */
+        Route::group(['prefix'  =>   'salary'], function() {
+            Route::get('/', 'Admin\SalariesController@index')->name('admin.salary.index');
+            Route::get('/create', 'Admin\SalariesController@create')->name('admin.salary.create');
+            Route::post('/store', 'Admin\SalariesController@store')->name('admin.salary.store');
+            Route::get('/{id}/edit', 'Admin\SalariesController@edit')->name('admin.salary.edit');
+            Route::post('/update', 'Admin\SalariesController@update')->name('admin.salary.update');
+            Route::get('/{id}/delete', 'Admin\SalariesController@delete')->name('admin.salary.delete');
+        });
+        /**********
+         * StatesController
+         * ******** */
+        Route::group(['prefix'  =>   'state'], function() {
+            Route::get('/', 'Admin\StatesController@index')->name('admin.state.index');
+            Route::get('/create', 'Admin\StatesController@create')->name('admin.state.create');
+            Route::post('/store', 'Admin\StatesController@store')->name('admin.state.store');
+            Route::get('/{id}/edit', 'Admin\StatesController@edit')->name('admin.state.edit');
+            Route::post('/update', 'Admin\StatesController@update')->name('admin.state.update');
+            Route::get('/{id}/delete', 'Admin\StatesController@delete')->name('admin.state.delete');
         });
     });
 });
