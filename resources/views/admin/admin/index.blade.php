@@ -17,6 +17,7 @@
                         <thead>
                             <tr>
                                 <th> # </th>
+                                <th> Picture </th>
                                 <th> Username </th>
                                 <th> First Name </th>
                                 <th> Last Name </th>
@@ -29,6 +30,7 @@
                                 @if ($newadmin->id != 0)
                                     <tr>
                                         <td>{{ $newadmin->id }}</td>
+                                        <td><img class="card-img-top" src="{{ asset('storage/'.$newadmin->picture) }}" alt="Card image cap" style="height:50px;width:50px;"></td>
                                         <td>{{ $newadmin->username }}</td>
                                         <td>{{ $newadmin->first_name }}</td>
                                         <td>{{ $newadmin->last_name }}</td>
