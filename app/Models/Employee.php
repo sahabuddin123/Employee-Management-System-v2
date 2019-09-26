@@ -14,8 +14,16 @@ class Employee extends Model
      *
      * @var array
      */
-    protected $dates = ['deleted_at'];
-    
+    protected $table = 'employees';
+    protected $fillable = [
+                            'first_name','last_name','email','phone','address'
+                            ,'gender_id',
+                            'join_date','birth_date','dept_id','country_id','state_id','city_id',
+                            'division_id','salary_id','age',
+                            'picture'
+                        ];
+    //protected $dates = ['deleted_at'];
+
     /**
      *  Below all methods are creating Eloquent's One to Many (inverse) Relationships.
      *  for example, many employees can have a same department.

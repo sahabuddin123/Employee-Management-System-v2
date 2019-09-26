@@ -101,6 +101,10 @@ class AdminsController extends BaseController
         }
         return $this->responseRedirectBack('admin updated successfully' ,'success',false, false);
     }
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function show($id)
     {
         $admin = $this->adminRepository->findAdminById($id);

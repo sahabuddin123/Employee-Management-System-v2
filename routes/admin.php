@@ -99,5 +99,17 @@ Route::group(['prefix'  =>  'admin'], function () {
             Route::post('/update', 'Admin\DivisionsController@update')->name('admin.division.update');
             Route::get('/{id}/delete', 'Admin\DivisionsController@delete')->name('admin.division.delete');
         });
+        /**********
+         * EmpolyeesController
+         * ******** */
+        Route::group(['prefix'  =>   'employees'], function() {
+            Route::get('/', 'Admin\EmpolyeesController@index')->name('admin.employees.index');
+            Route::get('/create', 'Admin\EmpolyeesController@create')->name('admin.employees.create');
+            Route::post('/store', 'Admin\EmpolyeesController@store')->name('admin.employees.store');
+            Route::get('/{id}/edit', 'Admin\EmpolyeesController@edit')->name('admin.employees.edit');
+            Route::get('/{id}/show', 'Admin\EmpolyeesController@show')->name('admin.employees.show');
+            Route::post('/update', 'Admin\EmpolyeesController@update')->name('admin.employees.update');
+            Route::get('/{id}/delete', 'Admin\EmpolyeesController@delete')->name('admin.employees.delete');
+        });
     });
 });

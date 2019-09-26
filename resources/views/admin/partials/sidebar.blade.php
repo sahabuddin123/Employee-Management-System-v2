@@ -20,46 +20,62 @@
                 <span class="app-menu__label">Settings</span>
             </a>
         </li>
-        <li>
-            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.departments.index' ? 'active' : '' }}"
-            href="{{ route('admin.departments.index') }}">
-            <i class="app-menu__icon fa fa-building" aria-hidden="true"></i>
-            <span class="app-menu__label">Department</span>
+        <li class="treeview">
+            <a class="app-menu__item" href="#" data-toggle="treeview">
+                <i class="app-menu__icon fa fa-laptop"></i>
+                <span class="app-menu__label">Setup</span>
+                <i class="treeview-indicator fa fa-angle-right"></i>
             </a>
+            <ul class="treeview-menu">
+                    <li>
+                        <a class="app-menu__item {{ Route::currentRouteName() == 'admin.departments.index' ? 'active' : '' }}"
+                        href="{{ route('admin.departments.index') }}">
+                        <i class="app-menu__icon fa fa-building" aria-hidden="true"></i>
+                        <span class="app-menu__label">Department</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="app-menu__item {{ Route::currentRouteName() == 'admin.city.index' ? 'active' : '' }}"
+                        href="{{ route('admin.city.index') }}">
+                        <i class="app-menu__icon fa fa-map-marker"></i>
+                        <span class="app-menu__label">City</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="app-menu__item {{ Route::currentRouteName() == 'admin.country.index' ? 'active' : '' }}"
+                        href="{{ route('admin.country.index') }}">
+                        <i class="app-menu__icon fa fa-globe"></i>
+                        <span class="app-menu__label">Country</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="app-menu__item {{ Route::currentRouteName() == 'admin.salary.index' ? 'active' : '' }}"
+                        href="{{ route('admin.salary.index') }}">
+                        <i class="app-menu__icon fa fa-usd"></i>
+                        <span class="app-menu__label">Salary</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="app-menu__item {{ Route::currentRouteName() == 'admin.state.index' ? 'active' : '' }}"
+                        href="{{ route('admin.state.index') }}">
+                        <i class="app-menu__icon fa fa-building-o"></i>
+                        <span class="app-menu__label">State</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="app-menu__item {{ Route::currentRouteName() == 'admin.division.index' ? 'active' : '' }}"
+                        href="{{ route('admin.division.index') }}">
+                        <i class="app-menu__icon fa fa-area-chart"></i>
+                        <span class="app-menu__label">Division</span>
+                        </a>
+                    </li>
+            </ul>
         </li>
         <li>
-            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.city.index' ? 'active' : '' }}"
-            href="{{ route('admin.city.index') }}">
-            <i class="app-menu__icon fa fa-map-marker"></i>
-            <span class="app-menu__label">City</span>
-            </a>
-        </li>
-        <li>
-            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.country.index' ? 'active' : '' }}"
-            href="{{ route('admin.country.index') }}">
-            <i class="app-menu__icon fa fa-globe"></i>
-            <span class="app-menu__label">Country</span>
-            </a>
-        </li>
-        <li>
-            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.salary.index' ? 'active' : '' }}"
-            href="{{ route('admin.salary.index') }}">
-            <i class="app-menu__icon fa fa-usd"></i>
-            <span class="app-menu__label">Salary</span>
-            </a>
-        </li>
-        <li>
-            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.state.index' ? 'active' : '' }}"
-            href="{{ route('admin.state.index') }}">
-            <i class="app-menu__icon fa fa-building-o"></i>
-            <span class="app-menu__label">State</span>
-            </a>
-        </li>
-        <li>
-            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.division.index' ? 'active' : '' }}"
-            href="{{ route('admin.division.index') }}">
-            <i class="app-menu__icon fa fa-area-chart"></i>
-            <span class="app-menu__label">Division</span>
+            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.employees.index' ? 'active' : '' }}"
+                href="{{ route('admin.employees.index') }}">
+                <i class="app-menu__icon fa fa-users"></i>
+                <span class="app-menu__label">Employees</span>
             </a>
         </li>
     </ul>

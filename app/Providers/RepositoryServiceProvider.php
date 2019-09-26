@@ -8,6 +8,7 @@ use App\Contracts\CountryContract;
 use App\Contracts\SalaryContract;
 use App\Contracts\StateContract;
 use App\Contracts\DivisionContract;
+use App\Contracts\EmployeesContract;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\AdminRepository;
 use App\Repositories\DepartmentRepository;
@@ -16,16 +17,19 @@ use App\Repositories\CountryRepository;
 use App\Repositories\SalaryRepository;
 use App\Repositories\StateRepository;
 use App\Repositories\DivisionRepository;
+use App\Repositories\EmployeesRepository;
+
 class RepositoryServiceProvider extends ServiceProvider
 {
     protected $repositories = [
-        AdminContract::class=>AdminRepository::class,
-        DepartmentContract::class=>DepartmentRepository::class,
-        CityContract::class=>CityRepository::class,
-        CountryContract::class=>CountryRepository::class,
-        SalaryContract::class=>SalaryRepository::class,
-        StateContract::class=>StateRepository::class,
-        DivisionContract::class=>DivisionRepository::class,
+        AdminContract::class        =>  AdminRepository::class,
+        DepartmentContract::class   =>  DepartmentRepository::class,
+        CityContract::class         =>  CityRepository::class,
+        CountryContract::class      =>  CountryRepository::class,
+        SalaryContract::class       =>  SalaryRepository::class,
+        StateContract::class        =>  StateRepository::class,
+        DivisionContract::class     =>  DivisionRepository::class,
+        EmployeesContract::class    =>  EmployeesRepository::class,
     ];
  
     /**

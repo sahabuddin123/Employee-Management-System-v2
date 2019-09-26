@@ -11,6 +11,7 @@ class CreateEmployeesTable extends Migration
      *
      * @return void
      */
+    
     public function up()
     {
         Schema::create('employees', function (Blueprint $table) {
@@ -18,37 +19,30 @@ class CreateEmployeesTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email');
+            $table->integer('age');
             $table->string('phone');
             $table->mediumText('address');
-            
-            /**
-             *  if we need add a foreign key constraint then
-             *  the column should be unsigned integer
-             */
-            $table->integer('gender_id')->unsigned();
-            $table->date('join_date');
-            $table->date('birth_date');
-            $table->integer('dept_id')->unsigned();
-            $table->integer('country_id')->unsigned();
-            $table->integer('state_id')->unsigned();
-            $table->integer('city_id')->unsigned();
-            $table->integer('division_id')->unsigned();
-            $table->integer('salary_id')->unsigned();
-            $table->integer('age');
-            $table->string('picture');
-
             /**
              *  Add foreign key constraints to these columns
              */
-            $table->foreign('dept_id')->references('id')->on('departments');
-            $table->foreign('country_id')->references('id')->on('countries');
-            $table->foreign('state_id')->references('id')->on('states');
-            $table->foreign('city_id')->references('id')->on('cities');
-            $table->foreign('division_id')->references('id')->on('divisions');
-            $table->foreign('salary_id')->references('id')->on('salaries');
+            $table->unsignedInteger('gender_id');
             $table->foreign('gender_id')->references('id')->on('genders');
+            $table->unsignedInteger('salary_id');
+            $table->foreign('salary_id')->references('id')->on('salaries');
+            $table->unsignedInteger('dept_id');
+            $table->foreign('dept_id')->references('id')->on('departments');
+            $table->unsignedInteger('state_id');
+            $table->foreign('state_id')->references('id')->on('states');
+            $table->unsignedInteger('city_id');
+            $table->foreign('city_id')->references('id')->on('cities');
+            $table->unsignedInteger('country_id');
+            $table->foreign('country_id')->references('id')->on('countries');
+            $table->date('join_date');
+            $table->date('birth_date');
+            $table->unsignedInteger('division_id');
+            $table->foreign('division_id')->references('id')->on('divisions');
+            $table->string('picture');
             $table->timestamps();
-            
             /**
              *  Add Soft Deletes.
              * 
@@ -57,6 +51,17 @@ class CreateEmployeesTable extends Migration
              *  deleted_at column.
              */
             $table->softDeletes();
+            /**
+             *  if we need add a foreign key constraint then
+             *  the column should be unsigned integer
+             */
+            // $table->integer('gender_id')->unsigned();
+            // $table->integer('dept_id')->unsigned();
+            // $table->integer('country_id')->unsigned();
+            // $table->integer('state_id')->unsigned();
+            // $table->integer('city_id')->unsigned();
+            // $table->integer('division_id')->unsigned();
+            // $table->integer('salary_id')->unsigned();  
         });
     }
 

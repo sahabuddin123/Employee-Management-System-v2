@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
          $this->call(SettingsTableSeeder::class);
          //DepartmentTableSeeder
          $this->call(DepartmentTableSeeder::class);
-         
-        
+         //employesTableSeeder
+         $this->call(employesTableSeeder::class);
     }
 }
