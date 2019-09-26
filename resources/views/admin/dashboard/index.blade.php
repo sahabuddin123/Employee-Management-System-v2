@@ -9,19 +9,73 @@
     <div class="row">
         <div class="col-md-6 col-lg-3">
             <div class="widget-small primary coloured-icon">
-                <i class="icon fa fa-users fa-3x"></i>
+                <i class="icon fa fa-user"></i>
                 <div class="info">
-                    <h4>Departments</h4>
-                    <p><b></b></p>
+                    <h4>Admin</h4>
+                    <p><b>Total({{ $t_admins }})</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-small danger coloured-icon">
+            <i class="icon fa fa-users fa-3x"></i>
+                <div class="info">
+                    <h4>Employees</h4>
+                    <p><b>Total({{ $t_employees }})</b></p>
                 </div>
             </div>
         </div>
         <div class="col-md-6 col-lg-3">
             <div class="widget-small info coloured-icon">
-                <i class="icon fa fa-thumbs-o-up fa-3x"></i>
+            <i class="icon fa fa-building"></i>
                 <div class="info">
-                    <h4>Likes</h4>
-                    <p><b>25</b></p>
+                    <h4>Department</h4>
+                    <p><b>Total({{ $t_departments }})</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-small warning coloured-icon">
+            <i class="icon fa fa-map-marker"></i>
+                <div class="info">
+                    <h4>Cities</h4>
+                    <p><b>Total({{ $t_cities }})</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-small primary coloured-icon">
+                <i class="icon fa fa-globe"></i>
+                <div class="info">
+                    <h4>Countries</h4>
+                    <p><b>Total({{ $t_countries}})</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-small danger coloured-icon">
+            <i class="icon fa fa-usd"></i>
+                <div class="info">
+                    <h4>Salaries</h4>
+                    <p><b>Total({{ $t_salaries }})</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-small info coloured-icon">
+            <i class="icon fa fa-building-o"></i>
+                <div class="info">
+                    <h4>States</h4>
+                    <p><b>Total({{ $t_states }})</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-small warning coloured-icon">
+            <i class="icon fa fa-area-chart"></i>
+                <div class="info">
+                    <h4>Divisions</h4>
+                    <p><b>Total({{ $t_divisions }})</b></p>
                 </div>
             </div>
         </div>
@@ -44,4 +98,59 @@
             </div>
         </div>
     </div>
+    <br>
+    <div class="container-fluid">
+        <div class="card-panel">
+            <canvas id="employee"></canvas>
+        </div>
+    </div>
+    <br>
+    {{-- include the chart.js Library --}}
+    <script src="{{asset('/backend/js/Chart.js')}}"></script>
+    
+    {{-- Create the chart with javascript using canvas --}}
+    <script>
+        // Get Canvas element by its id
+        employee_chart = document.getElementById('employee').getContext('2d');
+        chart = new Chart(employee_chart,{
+            type:'line',
+            data:{
+                labels:[
+                    /*
+                        this is blade templating.
+                        we are getting the date by specifying the submonth
+                     */
+                    '{{Carbon\Carbon::now()->subMonths(4)->toFormattedDateString()}}',
+                    '{{Carbon\Carbon::now()->subMonths(3)->toFormattedDateString()}}',
+                    '{{Carbon\Carbon::now()->subMonths(2)->toFormattedDateString()}}',
+                    '{{Carbon\Carbon::now()->subMonths(1)->toFormattedDateString()}}'
+                    ],
+                datasets:[{
+                    label:'Employment Last Four Months',
+                    data:[
+                        '{{$emp_count_4}}',
+                        '{{$emp_count_3}}',
+                        '{{$emp_count_2}}',
+                        '{{$emp_count_1}}'
+                    ],
+                    backgroundColor: [
+                        'rgba(178,235,242 ,1)'
+                    ],
+                    borderColor: [
+                        'rgba(0,150,136 ,1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
 @endsection
