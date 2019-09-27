@@ -6,6 +6,7 @@
             <h1><i class="fa fa-tags"></i> {{ $pageTitle }}</h1>
             <p>{{ $subTitle }}</p>
         </div>
+        <a href="{{ route('admin.report.makeall') }}" class="btn btn-primary pull-right">Show All Report</a>
     </div>
     @include('admin.partials.flash')
     <div class="row">

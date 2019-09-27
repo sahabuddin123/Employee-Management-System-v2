@@ -117,8 +117,9 @@ Route::group(['prefix'  =>  'admin'], function () {
         Route::group(['prefix'  =>   'report'], function() {
         //Show Reports View
         Route::get('/','Admin\ReportController@index')->name('admin.report.index');
-
-        //Generate PDF
+        //All Generate PDF
+        Route::get('/pdf','Admin\ReportController@makeempReport')->name('admin.report.makeall');
+        //Single Generate PDF
         Route::get('/{id}/pdf','Admin\ReportController@makeReport')->name('admin.report.make');
         });
     });

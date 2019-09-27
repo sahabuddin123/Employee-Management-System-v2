@@ -104,22 +104,19 @@
             <canvas id="employee"></canvas>
         </div>
     </div>
-    <br>
-    {{-- include the chart.js Library --}}
+@endsection
+@push('scripts')
     <script src="{{asset('/backend/js/Chart.js')}}"></script>
     
-    {{-- Create the chart with javascript using canvas --}}
+    
     <script>
-        // Get Canvas element by its id
+        
         employee_chart = document.getElementById('employee').getContext('2d');
         chart = new Chart(employee_chart,{
             type:'line',
             data:{
                 labels:[
-                    /*
-                        this is blade templating.
-                        we are getting the date by specifying the submonth
-                     */
+                    
                     '{{Carbon\Carbon::now()->subMonths(4)->toFormattedDateString()}}',
                     '{{Carbon\Carbon::now()->subMonths(3)->toFormattedDateString()}}',
                     '{{Carbon\Carbon::now()->subMonths(2)->toFormattedDateString()}}',
@@ -153,4 +150,4 @@
             }
         });
     </script>
-@endsection
+@endpush

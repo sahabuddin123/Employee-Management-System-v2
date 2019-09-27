@@ -41,6 +41,17 @@ class ReportController extends BaseController
      * 
      * @return \Illuminate\Http\Response
      */
+    public function makeempReport(){
+        $employees = $this->employeesRepository->listEmployees();
+        //generate pdf
+        $pdf = PDF::loadView('admin.report.empreport',['employees' => $employees])->setPaper('a4', 'landscape');
+        return $pdf->stream('Employee_hired_report');
+    }
+     /**
+     *  Generate PDF
+     * 
+     * @return \Illuminate\Http\Response
+     */
     public function makeReport($id){
         $employee = $this->employeesRepository->findEmployeesById($id);
         //generate pdf
