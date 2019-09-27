@@ -12,7 +12,7 @@
     <div class="col-md-8 mx-auto">
         <div class="tile">
             <h3 class="tile-title">{{ $subTitle }}</h3>
-            <table class="table table-hover table-dark">
+            <table class="table table-hover table-dark" cellpadding="10">
                 <thead>
                     <tr>
                         <th  colspan="2">{{ $employee->first_name }} {{ $employee->last_name }}<br><small>{{ $employee->address }}<br>{{ $employee->phone }}</small></th>
@@ -61,10 +61,15 @@
                         <td class="text-primary"><h6>{{ $employee->birth_date }}</h6></td>
                     </tr>
                     <tr>
-                        <td class="text-danger"><h6>Address : </h6></td>
-                        <td class="text-primary"><h6>{{ $employee->address }}</h6></td>
+                        <td class="text-danger" colspan="1"><h6>Address : </h6></td>
+                        <td class="text-primary" colspan="3"><h6>{{ $employee->address }}</h6></td>
+                        
+                    </tr>
+                    <tr>
                         <td class="text-danger"><h6>Salary : </h6></td>
-                        <td class="text-primary"><h6>{{ $employee->empSalary->s_amount }}</h6></td>
+                        <td class="text-primary"><h6>{{ $employee->empSalary->s_amount }}/-</h6></td>
+                        <td class="text-danger"></td>
+                        <td class="text-primary"></td>
                     </tr>
                 </tbody>
             </table>

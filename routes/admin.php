@@ -111,5 +111,15 @@ Route::group(['prefix'  =>  'admin'], function () {
             Route::post('/update', 'Admin\EmpolyeesController@update')->name('admin.employees.update');
             Route::get('/{id}/delete', 'Admin\EmpolyeesController@delete')->name('admin.employees.delete');
         });
+        /**********
+         * ReportController
+         * ******** */
+        Route::group(['prefix'  =>   'report'], function() {
+        //Show Reports View
+        Route::get('/','Admin\ReportController@index')->name('admin.report.index');
+
+        //Generate PDF
+        Route::get('/{id}/pdf','Admin\ReportController@makeReport')->name('admin.report.make');
+        });
     });
 });

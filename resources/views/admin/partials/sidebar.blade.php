@@ -78,5 +78,12 @@
                 <span class="app-menu__label">Employees</span>
             </a>
         </li>
+        <li>
+            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.report.index' ? 'active' : '' }}"
+                href="{{ route('admin.report.index') }}">
+                <i class="app-menu__icon fa fa-file-o"></i>
+                <span class="app-menu__label">Report</span>
+            </a>
+        </li>
     </ul>
 </aside>
